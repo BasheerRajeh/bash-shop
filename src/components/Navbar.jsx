@@ -60,7 +60,7 @@ const Navbar = () => {
         <Container>
             <Wrapper>
                 <Left>
-                    <Language>EN</Language>
+                    <MenuItem><Language>EN</Language></MenuItem>
                     <SearchContainer>
                         <Input />
                         <Icon icon="mingcute:search-line" width="16" color="gray" />
