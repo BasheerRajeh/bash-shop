@@ -34,7 +34,7 @@ const Input = styled.input`
   flex: 8;
   padding-left: 20px;
   outline: none;
-  &:focus{
+  &:focus {
     outline: 1px solid teal;
   }
 `;
@@ -47,19 +47,19 @@ const Button = styled.button`
 `;
 
 const Newsletter = () => {
-    return (
-        <Container>
-            <Title>Newsletter</Title>
-            <Desc>Get timely updates from your favorite products.</Desc>
-            <InputContainer>
-                <Input placeholder="Your email" />
-                <Button>
-                    {/* <Icon icon="fluent:send-regular" /> */}
-                    <Icon icon="tabler:chevron-left" width="24" rotate={2} />
-                </Button>
-            </InputContainer>
-        </Container>
-    );
+  return (
+    <Container>
+      <Title>Newsletter</Title>
+      <Desc>Get timely updates from your favorite products.</Desc>
+      <InputContainer>
+        <Input placeholder="Your email" />
+        <Button>
+          {/* <Icon icon="fluent:send-regular" /> */}
+          <Icon icon="tabler:chevron-left" width="24" rotate={2} />
+        </Button>
+      </InputContainer>
+    </Container>
+  );
 };
 
 export default Newsletter;
