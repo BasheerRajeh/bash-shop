@@ -8,10 +8,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const Announcement = () => {
-    return <Container>Super Deal! Free Shipping on Order Over 500$</Container>;
+  return <Container>Super Deal! Free Shipping on Order Over 500$</Container>;
 };
 
 export default Announcement;

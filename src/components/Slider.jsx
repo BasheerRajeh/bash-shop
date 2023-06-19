@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import { sliderItems } from "../data";
+import { mobile } from "../utils/reponsive";
 
 const Container = styled.div`
   width: 100%;
@@ -10,6 +11,7 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+  ${mobile({ display: "none" })};
 `;
 
 const Arrow = styled.div`
@@ -88,56 +90,56 @@ const ActionButton = styled(Button)`
   }
 `;
 const Slider = () => {
-    const [slideIndex, setSlideIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
 
-    const handleClick = (direction) => {
-        if (direction === 'left') {
-            setSlideIndex((prev) => {
-                return (prev + sliderItems.length - 1) % sliderItems.length;
-            });
-        }
+  const handleClick = (direction) => {
+    if (direction === 'left') {
+      setSlideIndex((prev) => {
+        return (prev + sliderItems.length - 1) % sliderItems.length;
+      });
+    }
 
-        if (direction === 'right') {
-            setSlideIndex((prev) => {
-                return (prev + 1 + sliderItems.length) % sliderItems.length;
-            });
-        }
-    };
+    if (direction === 'right') {
+      setSlideIndex((prev) => {
+        return (prev + 1 + sliderItems.length) % sliderItems.length;
+      });
+    }
+  };
 
-    return (
-        <Container>
-            <Arrow direction="left" onClick={() => handleClick("left")}>
-                <Icon icon="tabler:chevron-left" color="gray" width="24" />
-            </Arrow>
-            <Wrapper slideIndex={slideIndex}>
-                {sliderItems.map((item) => (
-                    <Slide key={item.id} bg={item.bg}>
-                        <ImgContainer>
-                            <Image src={item.img} />
-                        </ImgContainer>
-                        <InfoContainer>
-                            <Title>{item.title}</Title>
-                            <Desc>{item.desc}</Desc>
-                            <ActionButton
-                                variant="outlined"
-                                sx={{
-                                    border: "1px solid black",
-                                    color: "black",
-                                    padding: "10px",
-                                    fontSize: "18px",
-                                }}
-                            >
-                                SHOW NOW
-                            </ActionButton>
-                        </InfoContainer>
-                    </Slide>
-                ))}
-            </Wrapper>
-            <Arrow direction="right" onClick={() => handleClick("right")}>
-                <Icon icon="tabler:chevron-left" color="gray" width="24" rotate={2} />
-            </Arrow>
-        </Container>
-    );
+  return (
+    <Container>
+      <Arrow direction="left" onClick={() => handleClick("left")}>
+        <Icon icon="tabler:chevron-left" color="gray" width="24" />
+      </Arrow>
+      <Wrapper slideIndex={slideIndex}>
+        {sliderItems.map((item) => (
+          <Slide key={item.id} bg={item.bg}>
+            <ImgContainer>
+              <Image src={item.img} />
+            </ImgContainer>
+            <InfoContainer>
+              <Title>{item.title}</Title>
+              <Desc>{item.desc}</Desc>
+              <ActionButton
+                variant="outlined"
+                sx={{
+                  border: "1px solid black",
+                  color: "black",
+                  padding: "10px",
+                  fontSize: "18px",
+                }}
+              >
+                SHOW NOW
+              </ActionButton>
+            </InfoContainer>
+          </Slide>
+        ))}
+      </Wrapper>
+      <Arrow direction="right" onClick={() => handleClick("right")}>
+        <Icon icon="tabler:chevron-left" color="gray" width="24" rotate={2} />
+      </Arrow>
+    </Container>
+  );
 };
 
 export default Slider;

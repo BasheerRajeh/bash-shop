@@ -8,7 +8,7 @@ import Register from "./page/Register";
 function App() {
   return (
     <>
-      <Cart />
+      <Product />
     </>
   );
 }
